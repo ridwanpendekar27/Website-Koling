@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembayaran</title>
+    <script src="node_modules/instascan/dist/instascan.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+        }
+        header{
+    background-color: #FFDD86;
+    height: 60px;
+  }
+ 
+  /*Navbbar*/
+nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+li {
+    list-style-type: none;
+    margin: -10px 10px;
+    font-weight: bold;
+}
+
+ li > a{
+  text-decoration: none;
+  font-size: 20px;
+  display: inline-block;
+  padding: 15px 25px 15px 25px;
+  border-radius: 15px;
+  color: #000;
+}
+
+
+li::after {
+    content: '';
+    width: 0rem;
+    height: 0.12rem;
+    background-color: #f7f6f6;
+    display: block;
+    border-radius: 0.2rem;
+    margin: 0.2rem auto 0 auto;
+    transition: all 0.3s ease-in-out;
+}
+
+li:hover::after {
+    width: 1.5rem;
+}
+
+#logo {
+    position: absolute;
+    height: auto;
+    width: 10%;
+    margin-top: -3%;
+  }
+
+#barcode {
+    position: absolute;
+    width: 30%;
+    height: auto;
+    left: 35%;
+    top: 20%;
+}
+
+h2 {
+    position: relative;
+   width: 50%;
+   height: 30%; 
+   left: 44%;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <img id="logo" src="/assets/img/img3.png" alt="">
+        <nav>
+            <ul>
+                <li><a href="/assets/page/user.html">User</a></li>
+                <li><a href="/index.html">Logout</a></li>
+            </ul>
+        </nav>
+        <main class="main-content">
+        </main>
+    </header>
+    <div class="container">
+        <h2>SCAN DISINI</h2>
+        <video id="barcode"></video>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let scanner;
+
+            // Fungsi untuk memulai pemindaian QR code
+            function startScan() {
+                scanner = new Instascan.Scanner({ video: document.getElementById('barcode') });
+                scanner.addListener('scan', function(content) {
+                    alert('QR Code berhasil dipindai! Isi QR Code: ' + content);
+                    // Lakukan tindakan sesuai dengan hasil pemindaian QR code
+                });
+
+                // Mendapatkan daftar kamera yang tersedia
+                Instascan.Camera.getCameras().then(function(cameras) {
+                    if (cameras.length > 0) {
+                        // Gunakan kamera pertama yang ditemukan
+                        scanner.start(cameras[0]);
+                    } else {
+                        console.error('No cameras found.');
+                        alert('Tidak ditemukan kamera pada perangkat ini.');
+                    }
+                }).catch(function(e) {
+                    console.error(e);
+                    alert('Error saat mengakses kamera: ' + e);
+                });
+            }
+
+            // Panggil fungsi untuk memulai pemindaian QR code saat halaman dimuat
+            startScan();
+        });
+    </script>
+</body>
+</html>

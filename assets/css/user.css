@@ -1,0 +1,167 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #A16516;
+}
+
+header{
+    background-color: #FFDD86;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 25px auto;
+    padding: 20px;
+    background-color: #A16516;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0 ,0.1);
+}
+
+.main-content {
+    flex: 1;
+    min-width: 60%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.main-content h1 {
+    font-size: 2.5em;
+    color: #222;
+    margin-bottom: 20px;
+}
+
+.main-content p {
+    line-height: 1.6;
+    color: #555;
+}
+
+nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+}
+
+li {
+    list-style-type: none;
+    margin: 5px 20px;
+    font-weight: bold;
+    color: #000;
+    
+}
+
+li > a{
+    text-decoration: none;
+    font-size: 16px;
+    display: inline-block;
+    padding: 1px 2px 1px 2px;
+    border-radius: 15px;
+    color: #000;
+    font-weight: bold;
+}
+
+/*Aside*/
+.sidebar {
+    background-color: #FFDD86;
+    color: aliceblue;
+    width: 300px;
+    min-height: 80vh;
+    padding: 20px;
+    border-radius: 15px;
+    box-sizing: border-box;
+    top: px;
+    left: 0;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(0);
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar nav ul li {
+    margin: 15px 0;
+}
+
+.sidebar nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+    display: block;
+    padding: 10px;
+    transition: background-color 0.3s;
+}
+
+.sidebar nav ul li a:hover {
+    background-color: #0f1923;
+    border-radius: 10px;
+}
+
+section::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+  
+  .text {
+    margin: 0 25%;
+  }
+
+  /* menu */
+  #im2 {
+  position: absolute;
+    width: 70%;
+  height: 80%;
+  right: 5%;
+  left: 27.6%;
+  bottom:3.3%;
+  border-radius: 2%;
+  }
+
+  /* minuman1 */
+  #img5 {
+    width: 40%;
+    height: auto;
+    position: absolute;
+    bottom: 3%;
+    right: 6%;
+    left: 25%;
+    top: 1%;
+  }
+
+  /* minuman2 */
+  #img6 {
+    width: 50%;
+    height: auto;     
+    position: absolute;
+    right: 6%;
+    left: 25%;
+    top: 32%;
+  }
+
+  /* minuman3 */
+  #img7 {
+    width: 50%;
+    height: auto;
+    position: absolute;
+    right: 6%;
+    left: 25%;
+    top: 55%;
+  }
+ 
+  /* logo */
+  #img3 {
+    width: 40%;
+    height: auto;
+    position: absolute;
+    bottom: 103%;
+    right: 75%;
+  }

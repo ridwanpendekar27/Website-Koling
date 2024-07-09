@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dash</title>
+    <link rel="stylesheet" href="/assets/css/Admin Dash.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/Geolocation App/maps.html">Lokasi</a></li>
+                <li><a href="/assets/page/user.html">User</a></li>
+                <li><a href="/index.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Admin</h2>
+            <p id="p">ABD RAHIM RAHMAT</p>
+            <nav>
+                <ul>
+                    <li><a href="/assets/page/admin.html">Home</a></li>
+                </ul>
+            </nav>
+            <img id="ower" src="/assets/img/ower.jpg" />
+            <nav>
+                <img id="logo" src="/assets/img/img3.png" alt="">
+            </nav>
+        </aside>
+        <main class="main-content">
+            <h1>Admin Dash</h1>
+            <p> Daftar Pemesanan</p>
+            <table class="orders-table">
+                <thead>
+                    <tr>
+                        <th>No Antrian</th>
+                        <th>Nama Pemesanan</th>
+                        <th>Jenis Minuman</th>
+                        <th>Jumlah</th>
+                        <th>Harga</th>
+                        <th>Total Harga</th>
+                        <th>Status</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody id="orders-body">
+                </tbody>
+            </table>
+        </main>
+    </div>
+    <script src="/assets/js/Admin Dash.js"></script>
+</body>
+</html>

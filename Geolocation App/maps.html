@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lokasi penjualan</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        body{
+            margin: 0;
+        }
+
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+
+        header{
+    background-color: #FFDD86;
+    height: 50px;
+    
+  }
+
+/*Navbbar*/
+nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+li {
+    list-style-type: none;
+    margin: -10px 15px 5px;
+    font-weight: bold;
+}
+
+ li > a{
+  text-decoration: none;
+  font-size: 15px;
+  display: inline-block;
+  padding: 15px 25px 15px 25px;
+  border-radius: 20px;
+  color: #000;
+}
+
+
+li::after {
+    content: '';
+    width: 0rem;
+    height: 0.12rem;
+    background-color: #f7f6f6;
+    display: block;
+    border-radius: 0.2rem;
+    margin: 0.2rem auto 0 auto;
+    transition: all 0.3s ease-in-out;
+}
+
+li:hover::after {
+    width: 1.5rem;
+}
+
+#logo {
+    width: 115px;
+    position: absolute;
+    right: 91%;
+    top: -33px;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <img id="logo" src="/assets/img/img3.png" alt="">
+                <li><a href="/Geolocation App/maps.html">Lokasi</a></li>
+                <li><a href="/login/Login.html">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <h3>Lokasi Koling</h3>
+    <div id="location"></div>
+    <div id="map"></div>
+    
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+// Fungsi untuk memulai peta dan melacak pergerakan
+function initMap() {
+    // Posisi default jika lokasi tidak tersedia
+    var defaultPos = { lat: -6.1751, lng: 106.8650 }; // Jakarta coordinates
+
+    // Inisialisasi peta dengan posisi default
+    var map = L.map('map').setView([defaultPos.lat, defaultPos.lng], 15);
+
+    // Tambahkan tile layer dari OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Tambahkan marker untuk menunjukkan lokasi
+    var marker = L.marker([defaultPos.lat, defaultPos.lng]).addTo(map);
+
+    // Fungsi untuk memperbarui posisi marker dan peta
+    function updatePosition(position) {
+        var lat = position.coords.latitude;
+        var lng = position.coords.longitude;
+
+        // Set posisi marker ke lokasi baru
+        marker.setLatLng([lat, lng]);
+
+        // Pusatkan peta ke lokasi baru
+        map.setView([lat, lng], 15);
+    }
+
+    // Fungsi untuk menangani error geolocation
+    function showError(error) {
+        switch(error.code) {
+            case error.PERMISSION_DENIED:
+                alert("User denied the request for Geolocation.");
+                break;
+            case error.POSITION_UNAVAILABLE:
+                alert("Location information is unavailable.");
+                break;
+            case error.TIMEOUT:
+                alert("The request to get user location timed out.");
+                break;
+            case error.UNKNOWN_ERROR:
+                alert("An unknown error occurred.");
+                break;
+        }
+    }
+
+    // Gunakan watchPosition untuk melacak pergerakan
+    if (navigator.geolocation) {
+        navigator.geolocation.watchPosition(updatePosition, showError);
+    } else {
+        alert("Geolocation is not supported by this browser.");
+    }
+}
+
+// Panggil fungsi initMap saat halaman dimuat
+window.onload = initMap;
+
+    </script>
+    </div>
+</body>
+</html>

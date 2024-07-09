@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pemesanan</title>
+    <link rel="stylesheet" href="/assets/css/pemesanan.css" />
+  </head>
+  <body>
+    <header>
+      <img id="logo" src="/assets/img/img3.png" alt="" />
+      <nav class="nav">
+        <ul>
+          <li><a href="/assets/page/user.html">User</a></li>
+          <li><a href="/index.html">Logout</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="container">
+      <main class="main-content">
+        <div class="container-2">
+          <form id="queueForm" class="form">
+            <div class="input-container">
+              <div id="queueNumber" class="queue-number">
+                <input
+                  placeholder="No. Antrian"
+                  type="text"
+                  id="queueInput"
+                  readonly
+                />
+                <input
+                  placeholder="Nama Pemesanan"
+                  type="text"
+                  id="pemesanan"
+                />
+              </div>
+            </div>
+            <div class="input-container">
+              <select id="Coffe" class="form_style">
+                <option value="" disabled selected>Coffe</option>
+                <option value="Americano_hot">Americano Hot</option>
+                <option value="Americano_Ice">Americano Ice</option>
+                <option value="Kopsu_hot">Kopsu Hot</option>
+                <option value="kopsu_ice">Kopsu Ice</option>
+                <option value="Kopi_gula_aren">Kopi Gula Aren</option>
+                <option value="Komel">Komel</option>
+                <option value="Kopi_tubruk_hot">Kopi Tubruk Hot</option>
+                <option value="Espresso">Espresso</option>
+              </select>
+              <select id="Non_coffe" class="form_style">
+                <option value="" disabled selected>Non Coffe</option>
+                <option value="Red_velvet">Red Velvet</option>
+                <option value="Taro">Taro</option>
+                <option value="coklat">Coklat</option>
+                <option value="Thai_tea">Thai Tea</option>
+                <option value="Green_tea">Green Tea</option>
+                <option value="Bubblegum">Bubblegum</option>
+              </select>
+              <input placeholder="Satuan" type="number" id="satuan" />
+              <input placeholder="Harga" type="number" id="harga" readonly />
+            </div>
+            <button class="submit" type="submit">Simpan</button>
+            <a class="Pembayaran" href="https://www.dana.id/" target="_blank"
+              >Pembayaran</a
+            >
+          </form>
+        </div>
+      </main>
+    </div>
+    <script src="/assets/js/pemesanan.js"></script>
+  </body>
+</html>
