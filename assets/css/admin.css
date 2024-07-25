@@ -13,13 +13,14 @@ header{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    max-width: 1200px;
+    max-width: 1150px;
     margin: 25px auto;
     padding: 20px;
-    background-color: #A16516;
+    background-color: hsl(34, 76%, 36%);
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0 ,0.1);
 }
+
 
 .main-content {
     flex: 1;
@@ -51,9 +52,17 @@ ul {
 
 li {
     list-style-type: none;
-    margin: 5px 20px;
+    margin: 15px 20px;
     font-weight: bold;
     color: #000;
+}
+
+.nav-list {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 li > a{
@@ -66,11 +75,47 @@ li > a{
     font-weight: bold;
 }
 
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: -10px;
+  }
+  
+.menu-toggle .hamburger,
+.menu-toggle .hamburger::before,
+.menu-toggle .hamburger::after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: aliceblue;
+    border-radius: 2px;
+}
+  
+.menu-toggle .hamburger ::before,
+.menu-toggle .hamburger ::after {
+    transition: transform 0.3s ease;
+}
+  
+.menu-toggle .hamburger::before {
+    transform: translateY(-8px);
+}
+  
+.menu-toggle .hamburger::after {
+    transform: translateY(8px);
+}
+
+
 /*Aside*/
 .sidebar {
     background-color: #FFDD86;
     color: aliceblue;
-    width: 300px;
+    width: 250px;
     min-height: 80vh;
     padding: 30px;
     border-radius: 15px;
@@ -110,18 +155,17 @@ section::after {
     clear: both;
 }
   
-  .text {
+.text {
     margin: 0 25%;
-  }
+}
 
   /* menu */
   #im2 {
   position: absolute;
-    width: 70%;
+  width: 900px;
   height: auto;
-  right: 5%;
-  left: 27.6%;
-  bottom: 3.5%;
+  left: 26.4%;
+  bottom: 5%;
   border-radius: 2%;
   }
 
@@ -161,6 +205,120 @@ section::after {
     width: 120px;
     height: auto;
     position: absolute;
-    bottom: 103%;
-    right: 75%;
+    bottom: 102%;
+    right: 87%;
   }
+
+  @media screen and (max-width: 360px) {
+    #img3 {
+      width: 35%;
+      bottom: 93%;      
+      right: 76%;   
+     }
+     
+     .menu-toggle {
+     justify-content: center;
+     display: flex;
+     padding: 10px;
+     margin: 2px;
+     }
+     
+     .nav-list {
+         display: none;
+         flex-direction: column;
+         width: 100%;
+         text-align: center;
+         background-color: var(--background-color);
+     }
+     
+     .nav-list li {
+         margin: 10px 0;
+         padding: 10px;
+     }
+     
+     .nav-list a {
+         font-size: 20px;
+     }
+     
+     .nav-list.active {
+         display: block;
+     }
+     
+     .nav-list li:hover::after {
+         width: 0rem;
+     }
+     
+     .menu-toggle.hidden {
+         display: none;
+     }
+     
+     /* menu */
+     #im2 {
+     width: 125%;
+     height: 140%;
+     left: -13%;
+     top: 5%;
+     border-radius: 5%;
+     position: relative;
+     } 
+ 
+     #img7 {
+     width: 30%;
+     height: 97%;
+     top: -10%;
+     left: -33%;
+     position: relative;
+     }
+ 
+     #img6 {
+     width: 35%;
+     height: 100%;
+     left: 67%;
+     top: 7%;
+     position: relative;
+     }
+ 
+     #img5 {
+     width: 90px;
+     height: auto;
+     left: 37%;
+     top: 17%;
+     }
+ 
+     body {
+     overflow-x: hidden;
+     }
+ 
+     .sidebar {
+     width: 480px;
+     min-height: 10vh;
+     padding: 1px;
+     border-radius: 15px;
+     box-sizing: border-box;
+     transition: transform 0.3s ease-in-out;
+     top: 10%;
+     left: 4%;
+     }
+ 
+     .container {
+     position: relative;
+     max-width: 1400px;
+     margin: 10px auto;
+     padding: 20px;
+     border-radius: 10px;
+     }
+ }
+ 
+ .close-menu {
+     display: none;
+     position: absolute;
+     top: -1px;
+     right: 10px;
+     font-size: 30px;
+     cursor: pointer;
+     color: #e1e3e6;
+ }
+   
+ .nav-list.active .close-menu {
+     display: block;
+ }

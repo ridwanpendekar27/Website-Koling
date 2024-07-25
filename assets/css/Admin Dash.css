@@ -87,7 +87,7 @@ header nav ul li a {
     max-width: 1200px;
     margin: 40px auto;
     padding: 20px;
-    background-color: #658147;
+    background-color: #a0ad92;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
@@ -208,7 +208,49 @@ table tbody tr:hover {
     position: relative;
     left: 20%;
     top: 28%;
-    color: #000;
-    
-    
+    color: #000;   
+}
+
+@media screen and (max-width: 360px) {
+    #logo {
+        height: auto;
+        width: 40%;
+        bottom: 86%;
+    }
+
+    .container-2 {
+        overflow-y: scroll;
+        justify-content: flex-start;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+
+    /*Aside*/
+    .sidebar {
+    width: 300px;
+    min-height: 1vh;
+    padding: 5px;
+    border-radius: 15px;
+    box-sizing: border-box;
+    top: 250px;
+    left: 0;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(0);
+    }
+
+    .container {
+    max-width: 1000px;
+    height: 650px;
+    margin: 15px auto;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: none;
+    }
+
+    #p {
+        left: 20%;
+        top: 40%;
+    }
 }

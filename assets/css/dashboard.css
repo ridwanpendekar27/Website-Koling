@@ -23,6 +23,10 @@ nav {
     justify-content: flex-end;
 }
 
+nav a {
+  text-decoration: none;
+}
+
 ul {
     display: flex;
     flex-direction: row;
@@ -34,6 +38,14 @@ li {
     margin: 5px 30px;
 }
 
+.nav-list {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  padding: 10px;
+  margin: 2px;
+}
+
 .nav li > a{
   text-decoration: none;
   font-size: 15px;
@@ -43,6 +55,40 @@ li {
   color: #000;
 }
 
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-left: -10px;
+}
+
+.menu-toggle .hamburger,
+.menu-toggle .hamburger::before,
+.menu-toggle .hamburger::after {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: aliceblue;
+  border-radius: 2px;
+}
+
+.menu-toggle .hamburger ::before,
+.menu-toggle .hamburger ::after {
+  transition: transform 0.3s ease;
+}
+
+.menu-toggle .hamburger::before {
+  transform: translateY(-8px);
+}
+
+.menu-toggle .hamburger::after {
+  transform: translateY(8px);
+}
 
 /*Main*/
 h1 {
@@ -62,7 +108,7 @@ p {
 
 #img1 {
   width: 30%;
-  height: 70%;
+  height: 71%;
   position: absolute;
   bottom: 3px;
   right: 6%;
@@ -73,11 +119,11 @@ p {
 
 #img4 {
   width: 30%;
-  height: 70%;
+  height: 75%;
   position: absolute;
-  bottom: 6px;
+  bottom: 5px;
   right: 40%;
-  top: 23%;
+  top: 16%;
   border-radius: 3%;
 }
 
@@ -90,3 +136,105 @@ p {
   right: 90%;
 }
 
+@media screen and (max-width: 360px) {
+  .menu-toggle {
+    justify-content: center;
+    display: flex;
+    padding: 15px;
+    margin: 2px;
+    z-index: 1;
+  }
+  
+  nav {
+    justify-content: none;
+  }
+
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    background-color: #A16516;
+    z-index: 1;
+  }
+
+  .nav-list li {
+    margin: 10px 0;
+    padding: 10px;
+  }
+
+  .nav-list a {
+    font-size: 20px;
+  }
+
+  .nav-list.active {
+    display: flex;
+  }
+
+  .nav-list li:hover::after {
+    width: 0rem;
+  }
+
+  .menu-toggle.hidden {
+    display: none;
+  }
+
+  .grid-container {
+    padding: 10px;
+  }
+
+  #img1,#img4 {
+    width: 45%;
+    height: auto;
+    top: 45%;
+  }
+  #img4{
+    left: 52%;
+  }
+
+  #img1 {
+    right: 45%;
+  }
+
+  #img3 {
+    width: 30%;
+    left: -10px;
+    top: -3%;
+  }
+
+  h1 {
+    position: absolute;
+    font-size: 45px;
+    right: -3%;
+    top: 7%;
+    width: 100%;
+  }
+
+  p {
+    position: absolute;
+    font-size: 20px;
+    right: -5%;
+    bottom: 60%;
+    width: 100%;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+}
+
+.close-menu {
+  display: none;
+  position: absolute;
+  top: 1px;
+  right: 10px;
+  font-size: 30px;
+  cursor: pointer;
+  color: aliceblue;
+  
+}
+
+.nav-list.active .close-menu {
+  display: block;
+}

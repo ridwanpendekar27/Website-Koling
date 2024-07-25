@@ -9,7 +9,11 @@
 <body>
     <header>
         <nav>
-            <ul>
+            <div class="menu-toggle" id="menu-toggle">
+                <div class="hamburger"></div>
+            </div>
+            <ul id="nav-list" class="nav-list">
+                <li class="close-menu" id="close-menu">&times;</li>
                 <li><a href="/Geolocation App/maps.html">Lokasi</a></li>
                 <li><a href="/assets/page/pemesanan.html">Pemesanan</a></li>
                 <li><a href="/index.html">Logout</a></li>
@@ -30,6 +34,20 @@
         <main class="main-content">
             <img id="im2" src="/assets/img/im2.jpg" />
         </main>
+        <script src="/assets/js/res.js"></script>
+        <script>
+             // Simpan posisi scroll sebelum meninggalkan halaman
+        window.onbeforeunload = function() {
+            localStorage.setItem('scrollPosition', window.scrollY);
+        };
+
+        // Pulihkan posisi scroll ketika halaman dimuat
+        window.onload = function() {
+            if (localStorage.getItem('scrollPosition') !== null) {
+                window.scrollTo(0, localStorage.getItem('scrollPosition'));
+            }
+        };
+        </script>
     </div>
 </body>
 </html>

@@ -27,7 +27,6 @@ header{
     margin: 5px 10px;
 }
 
-
 .nav li > a{
     text-decoration: none;
     font-size: 16px;
@@ -37,6 +36,7 @@ header{
     color: #fff;
     font-weight: bold;
 }
+
 .container-2 {
     display: flex;
     flex-wrap: wrap;
@@ -256,3 +256,103 @@ table tbody tr:hover {
     text-decoration: none;
     text-align: center;
   }
+
+/* Responsif media Query */
+@media screen and (max-width: 360px){
+  #logo{
+    height: auto;
+    width: 115px;
+    left: -2%;
+    top: -3%;
+  }
+
+  .main-content {
+    flex: 1;
+    min-width: 20%;
+    padding: -5px;
+
+  }
+
+  body {
+    overflow-y: hidden;
+  }
+
+  .input-container input, .form button {
+    outline: none;
+    margin: 1px 0;
+  }
+
+  .input-container input {
+    padding: 0.8rem;
+    padding-right: 0.2rem;
+    padding-left: 1.2rem;
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+    width: 250px;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+
+  .submit {
+    display: block;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    width: 100%;
+    border-radius: 0.5rem;
+    text-transform: uppercase;
+  }
+
+  .Pembayaran {
+    display: block;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    width: 85%;
+    border-radius: 0.5rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+  }
+
+  .container-2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 500px;
+    right: 500px ;
+    margin: 30px auto;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .input-container select {
+    background-color: #fff;
+    padding: 1rem;
+    padding-right: 3rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    width: 273px;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    outline: none;
+    border: 1px solid #e5e7eb;
+    margin: 8px 0;
+  }
+
+  .form {
+    padding: 0.1rem;
+    left: 1%;
+  }
+  
+}

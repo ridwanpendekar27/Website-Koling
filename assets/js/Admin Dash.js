@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
         row.innerHTML = `
             <td>${order.queue}</td>
             <td>${order.pemesanan}</td>
-            <td>${order.jenis.join(', ')}</td>
+            <td>${order.jenis}</td>
             <td>${order.jumlah}</td>
             <td>${order.harga}</td>
             <td>${order.total}</td>
@@ -55,7 +55,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         deleteButton.addEventListener('click', () => {
             deleteRow(deleteButton);
-            updateLastQueueNumber();
         });
     }
 
@@ -74,16 +73,6 @@ document.addEventListener("DOMContentLoaded", () => {
         let orders = JSON.parse(localStorage.getItem('orders')) || [];
         orders = orders.filter(order => order.queue !== queue);
         localStorage.setItem('orders', JSON.stringify(orders));
-    }
-
-    function updateLastQueueNumber() {
-        let orders = JSON.parse(localStorage.getItem('orders')) || [];
-        let lastQueueNumber = 1;
-        if (orders.length > 0) {
-            const lastOrder = orders[orders.length - 1];
-            lastQueueNumber = parseInt(lastOrder.queue.slice(1)) + 1;
-        }
-        localStorage.setItem('lastQueueNumber', lastQueueNumber);
     }
 
     loadOrders();

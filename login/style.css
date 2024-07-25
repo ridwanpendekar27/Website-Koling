@@ -8,7 +8,7 @@
 }
  .container {
 	 height: 150vh;
-	 background-image: url("/assets/img/Background.jpg");
+	 background-image: url("/assets/img/Biji\ kopi.jpeg");
 	 background-size: cover;
 	 background-position: center;
 	 background-repeat: no-repeat;
@@ -210,5 +210,16 @@
 	 .modal-right {
 		 display: none;
 	}
+}
+
+@media screen and (max-width: 360px) {
+	.modal-container {
+		width: 85%;
+		height: 63%;
+		top: 13%;
+   }
+	.modal-right {
+		display: none;
+   }
 }
  

@@ -6,14 +6,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const satuanInput = document.getElementById('satuan');
     const hargaInput = document.getElementById('harga');
 
-    let lastQueueNumber = parseInt(localStorage.getItem('lastQueueNumber')) || 1;
+    let queueNumber = 1;
 
-    function updateQueueNumber() {
-        queueInput.value = `A${lastQueueNumber.toString().padStart(3, '0')}`;
-    }
-
-    function saveQueueNumber(queueNumber) {
-        localStorage.setItem('lastQueueNumber', queueNumber);
+    function generateQueueNumber() {
+        queueInput.value = `A${queueNumber.toString().padStart(3, '0')}`;
+        queueNumber++;
     }
 
     function calculatePrice() {
@@ -38,11 +35,13 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         let price = 0;
-
+        
+        // Menghitung harga dari pilihan kopi
         Array.from(coffeeSelect.selectedOptions).forEach(option => {
             price += coffeePrice[option.value] || 0;
         });
 
+        // Menghitung harga dari pilihan non-kopi
         Array.from(nonCoffeeSelect.selectedOptions).forEach(option => {
             price += nonCoffeePrice[option.value] || 0;
         });
@@ -62,10 +61,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     queueForm.addEventListener('submit', (e) => {
         e.preventDefault();
-
+        
         const selectedCoffees = Array.from(coffeeSelect.selectedOptions).map(option => option.value);
         const selectedNonCoffees = Array.from(nonCoffeeSelect.selectedOptions).map(option => option.value);
-
+        
         const order = {
             queue: queueInput.value,
             pemesanan: document.getElementById('pemesanan').value,
@@ -78,15 +77,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         addOrderToLocalStorage(order);
 
-        // Update the queue number after a successful submission
-        lastQueueNumber++;
-        saveQueueNumber(lastQueueNumber);
-        updateQueueNumber();
-
         alert('Pemesanan berhasil disimpan!');
         queueForm.reset();
         hargaInput.value = '';
+        generateQueueNumber();
+
     });
 
-    updateQueueNumber();
+    generateQueueNumber();
 });
+
