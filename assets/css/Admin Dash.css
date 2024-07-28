@@ -225,6 +225,7 @@ table tbody tr:hover {
 
     body {
         overflow-x: hidden;
+        overflow-y: hidden;
     }
 
     /*Aside*/

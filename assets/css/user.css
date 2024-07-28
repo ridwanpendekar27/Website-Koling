@@ -286,6 +286,7 @@ section::after {
  
      body {
      overflow-x: hidden;
+     overflow-y: hidden;
      }
  
      .sidebar {
